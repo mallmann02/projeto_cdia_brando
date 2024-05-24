@@ -1,2 +1,12 @@
-/pac_data/*.txt
+# dirs
+tmp/
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+# to be safe, ignore everything in that subdir
+pac_data/
+# then unignore our anchor or any other files we want to keep there
+! pac_data/.gitkeep
+
+# files
 .env
