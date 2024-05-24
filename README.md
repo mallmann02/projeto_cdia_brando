@@ -76,8 +76,14 @@ Repositório para documentação e código do Projeto I e II em CDIA relacionado
 
 ### Running
 
-1. Extract the files to `pac_data/`.
-
 1. Run the `main.ipynb` notebook.
+
+1. When done, deactivate the virtual environment:
+
+    ```sh
+    deactivate
+    ```
+
+1. (Optional.) If you're completely done with this project, delete `.venv/` to save space.
 
 [top](#toc)
