@@ -3,3 +3,4 @@ langchain_community~=0.2
 langchain-core~=0.2
 langchain~=0.2
 ipykernel~=6.29
+pandas~=2.2
