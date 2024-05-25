@@ -1,6 +1,6 @@
 # externo
 from zipfile import ZipFile
-from os import path, listdir, walk
+from os import path, listdir, walk, remove, rmdir
 from pandas import read_csv, DataFrame
 from pandas.errors import ParserError
 # local
@@ -60,26 +60,26 @@ class Dados():
         self.__dados=dict()
         zips=list()
         # parse arquivos por parametro
-        if path.isdir(path_arquivo):
-            # assume dir com zips
-            zips=[z for z in listdir(path_arquivo) if z.lower().endswith('.zip')]
-        elif isinstance(path_arquivo,str):
-            # assume unico zip
-            zips.append(path_arquivo)
-        else:
+        if isinstance(path_arquivo,list):
             # assume list[str]
             zips=path_arquivo
+        elif path.isdir(path_arquivo):
+            # assume dir com zips
+            zips=[z for z in listdir(path_arquivo) if z.lower().endswith('.zip')]
+        else:
+            # assume unico zip
+            zips.append(path_arquivo)
         # extrai zips para subdir em constantes
         for zip in zips:
             with ZipFile(zip) as zf:
                 zf.extractall(const.DADOS_TMP_ZIPS)
         # processa todos csvs no caminhos dos zips
-        for dpath,_,files in walk(const.DADOS_TMP_ZIPS):
+        for root,dirs,files in walk(const.DADOS_TMP_ZIPS,topdown=False):
             for f in files:
                 nome,ext=path.splitext(f)
                 if ext.lower()!='.csv': continue
                 # tenta criar df e adiciona a coleção
-                csv=path.join(dpath,f)
+                csv=path.join(root,f)
                 default_kwargs=dict(encoding='utf-8')
                 try:
                     dado={nome:read_csv(csv,**default_kwargs)}
@@ -91,6 +91,12 @@ class Dados():
                     # se não consegue interpretar com separador ',', tenta com ';'
                     dado={nome:read_csv(csv,sep=';',**default_kwargs)}
                 finally:
-                    # TODO: deletar zip apos ser processado
-                    pass
+                    remove(csv)
                 self.__dados.update(dado)
+            for d in dirs:
+                try:
+                    rmdir(path.join(root,d))
+                except OSError:
+                    # dir tem arquivo que nao foi processado, entao nao remove por seguranca
+                    continue
+        rmdir(const.DADOS_TMP_ZIPS)

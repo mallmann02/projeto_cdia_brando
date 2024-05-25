@@ -72,7 +72,7 @@ Repositório para documentação e código do Projeto I e II em CDIA relacionado
 
 ### Dataset
 
-1. Download the `zip` data files [from Moodle](https://moodle.pucrs.br/course/view.php?id=84076) and extract their content to the `pac_data/` subdir.
+1. Download the `zip` data files [from Moodle](https://moodle.pucrs.br/course/view.php?id=84076) and place them in the `pac_data/` subdir.
 
 ### Running
 
