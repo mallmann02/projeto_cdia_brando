@@ -107,17 +107,17 @@ lab_basic_attributes = AttributesInterface(
         """,
     pre_intruct_prompts=[
         """
-        Examples of lab tests that you may find in the text are:
-            - leukocytes
+        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
+            - leukocytes (leuco,WBC)
             - neutrophils
-            - lymphocytes
-            - platelets
-            - hemoglobin
+            - lymphocytes (linf)
+            - platelets (plaq,plaquetas)
+            - hemoglobin (Hb)
             - TGO (AST)
             - TGP (ALT)
             - TSH
-            - Vitamin D
-            - Vitamin B12
+            - Vitamin D (vit D)
+            - Vitamin B12 (vit B12)
         """
     ]
 )
