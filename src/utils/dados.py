@@ -65,7 +65,7 @@ class Dados():
             zips=path_arquivo
         elif path.isdir(path_arquivo):
             # assume dir com zips
-            zips=[z for z in listdir(path_arquivo) if z.lower().endswith('.zip')]
+            zips=[path.join(path_arquivo,z) for z in listdir(path_arquivo) if z.lower().endswith('.zip')]
         else:
             # assume unico zip
             zips.append(path_arquivo)
