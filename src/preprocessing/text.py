@@ -20,10 +20,7 @@ def remover_caracteres(texto:str,
     """
     # word-bounded para não pegar ocorrências no meio de palavras (e.g., fernando vs. nan nan)
     padroes = {
-        compile(r"\b("+
-                re.escape(char)+
-                r")+\b",
-                re.IGNORECASE,re.DOTALL) for char in conjunto_chars
+        re.compile(r"\b("+re.escape(char)+r")+\b",re.IGNORECASE) for char in conjunto_chars
     }
     tratado=texto
     for padrao in padroes:
