@@ -40,3 +40,27 @@ class LabBasicExtractor(TableDomainExtractor):
         self.table_name = "lab_basic"
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
+
+class LabHematExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_hemat"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class LabChemicalExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_quimica"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class LabChemicalExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_aac"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class LabAacExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_aac"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)

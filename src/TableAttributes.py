@@ -122,3 +122,202 @@ lab_basic_attributes = AttributesInterface(
     ]
 )
 
+lab_hemat_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert and help extract laboratory hematocrit tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
+        """,
+    user_prompt="""
+        <<CONTEXT>>
+            {context_data}
+
+            <<QUESTION>>
+            Using the information about the lab tests that you may find, what are the names of the lab tests and their results?
+
+            <<EXAMPLE>>
+            If the text mentions the lab tests "HT" with the result "33,2" and "TGP" with the result "108" you should output:
+
+            {json_template}
+
+            If there are no lab tests mentioned you should output:
+            ```json
+            {{
+                "lab_hemat": "No lab tests mentioned"
+            }}
+            ```
+
+            REMEMBER: The names of the lab tests and their results should be in the same format as they appear in the text.
+            REMEMBER: If there are multiple lab tests mentioned you should list them all.
+            REMEMBER: You don't need to include any other information in the output.
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "lab_hemat": [
+                    {{
+                        "test": "<extracted_test>",
+                        "result": "<extracted_result>"
+                    }},
+                    ...
+                ]
+            }}
+            ```
+        """,
+    pre_intruct_prompts=[
+        """
+        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
+            - liver function tests(TGO, TGP, FA, bilirrubinas,PFH, ALT)
+            - gama-gt (GGT,gamagt)
+            - hematocrit (HT, Hct)
+        """
+    ]
+)
+
+lab_chemical_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert and help extract chemical laboratory tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
+        """,
+    user_prompt="""
+        <<CONTEXT>>
+            {context_data}
+
+            <<QUESTION>>
+            Using the information about the lab tests that you may find, what are the names of the lab tests and their results?
+
+            <<EXAMPLE>>
+            If the text mentions the lab tests "LDL" with the result "142,56" and "HDL" with the result "32" you should output:
+
+            {json_template}
+
+            If there are no lab tests mentioned you should output:
+            ```json
+            {{
+                "lab_chemical": "No lab tests mentioned"
+            }}
+            ```
+
+            REMEMBER: The names of the lab tests and their results should be in the same format as they appear in the text.
+            REMEMBER: If there are multiple lab tests mentioned you should list them all.
+            REMEMBER: You don't need to include any other information in the output.
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "lab_chemical": [
+                    {{
+                        "test": "<extracted_test>",
+                        "result": "<extracted_result>"
+                    }},
+                    ...
+                ]
+            }}
+            ```
+        """,
+    pre_intruct_prompts=[
+        """
+        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
+            - low density lipoprotein (LDL)
+            - high density lipoprotein (HDL)
+            - triglycerides (Trigl, TL)
+        """
+    ]
+)
+
+lab_chemical_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert and help extract chemical laboratory tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
+        """,
+    user_prompt="""
+        <<CONTEXT>>
+            {context_data}
+
+            <<QUESTION>>
+            Using the information about the lab tests that you may find, what are the names of the lab tests and their results?
+
+            <<EXAMPLE>>
+            If the text mentions the lab tests "LDL" with the result "142,56" and "HDL" with the result "32" you should output:
+
+            {json_template}
+
+            If there are no lab tests mentioned you should output:
+            ```json
+            {{
+                "lab_chemical": "No lab tests mentioned"
+            }}
+            ```
+
+            REMEMBER: The names of the lab tests and their results should be in the same format as they appear in the text.
+            REMEMBER: If there are multiple lab tests mentioned you should list them all.
+            REMEMBER: You don't need to include any other information in the output.
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "lab_chemical": [
+                    {{
+                        "test": "<extracted_test>",
+                        "result": "<extracted_result>"
+                    }},
+                    ...
+                ]
+            }}
+            ```
+        """,
+    pre_intruct_prompts=[
+        """
+        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
+            - low density lipoprotein (LDL)
+            - high density lipoprotein (HDL)
+            - triglycerides (Trigl, TL)
+        """
+    ]
+)
+
+lab_aac_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert and help extract antibodies laboratory tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
+        """,
+    user_prompt="""
+        <<CONTEXT>>
+            {context_data}
+
+            <<QUESTION>>
+            Using the information about the lab tests that you may find, what are the names of the lab tests and their results?
+
+            <<EXAMPLE>>
+            If the text mentions the lab tests "ANTI TPO" with the result "Inferior a 5,0" and "AC ANTI-AQP4" with the result "NEG" you should output:
+
+            {json_template}
+
+            If there are no lab tests mentioned you should output:
+            ```json
+            {{
+                "lab_aac": "No lab tests mentioned"
+            }}
+            ```
+
+            REMEMBER: The names of the lab tests and their results should be in the same format as they appear in the text.
+            REMEMBER: If there are multiple lab tests mentioned you should list them all.
+            REMEMBER: You don't need to include any other information in the output.
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "lab_chemical": [
+                    {{
+                        "test": "<extracted_test>",
+                        "result": "<extracted_result>"
+                    }},
+                    ...
+                ]
+            }}
+            ```
+        """,
+    pre_intruct_prompts=[
+        """
+        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
+            - anti-MOG antibody-associated disease (MOGAD, MONEM)
+            - anti-aquaporin-4 antibody (Anti-AQP4 Ab, anti-NMO-IgG Ab)
+            - antibodies (ANTI)
+        """
+    ]
+)
