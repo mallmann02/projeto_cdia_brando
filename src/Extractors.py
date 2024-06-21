@@ -35,6 +35,18 @@ class DrugsExtractor(TableDomainExtractor):
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
 
+class DmdExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "trat_dmd"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+        
+class OtherTreatExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "trat_out"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
 class LabBasicExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
         self.table_name = "lab_basic"

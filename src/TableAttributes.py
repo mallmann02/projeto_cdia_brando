@@ -65,6 +65,110 @@ odr_drugs_attributes = AttributesInterface(
     """
 )
 
+dmd_drugs_attributes = AttributesInterface(
+        context_definition="""
+    You are a medical expert, helping to extract disease modifying drugs (dmd) names from text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the dmd mentioned in the text. If you don't find any drugs, you should say 'No dmd mentioned'.
+    """,
+    user_prompt="""
+        <<CONTEXT>>
+        {context_data}
+
+        <<QUESTION>>
+        What are the names of the dmd mentioned in the text?
+
+        <<EXAMPLE>>
+        If the text mentions the dmd "natalizumabe" and "ciclofosfamida" you should output:
+
+        {json_template}
+
+        If there are no dmd mentioned you should output:
+        ```json
+        {{
+            "dmd": "No dmd mentioned"
+        }}
+        ```
+
+        REMEMBER: The names of the dmd should be in the same format as they appear in the text.
+        REMEMBER: If there are multiple dmd mentioned you should list them all.
+        REMEMBER: You don't need to include any other information in the output.
+    """,
+    json_extracion_template="""
+        ```json
+        {{
+            "dmd": [
+                {{
+                    "dmd": "<extracted_drug>",
+                    "prescription": "<extracted_interval>"
+                }},
+                ...
+            ]
+        }}
+        ```
+    """,
+    pre_intruct_prompts=[
+        """
+        Some examples of dmd drugs that you may find in the text are:
+        - ciclofosfamida
+        - fingolimode      
+        - betainterferona (type 1a: rebif,avonex, type 1b: betaferon) 
+        - glatirâmer
+        - interferon beta
+        - fumarato de dimetila
+        """ 
+    ]
+)
+
+other_treat_attributes = AttributesInterface(
+        context_definition="""
+    You are a medical expert, helping to extract others treatments(out) names from text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the out mentioned in the text. If you don't find any drugs, you should say 'No out mentioned'.
+    """,
+    user_prompt="""
+        <<CONTEXT>>
+        {context_data}
+
+        <<QUESTION>>
+        What are the names of the others treatments mentioned in the text?
+
+        <<EXAMPLE>>
+        If the text mentions the dmd "natalizumabe" and "ciclofosfamida" you should output:
+
+        {json_template}
+
+        If there are no out mentioned you should output:
+        ```json
+        {{
+            "out": "No out mentioned"
+        }}
+        ```
+
+        REMEMBER: The names of the out should be in the same format as they appear in the text.
+        REMEMBER: If there are multiple out mentioned you should list them all.
+        REMEMBER: You don't need to include any other information in the output.
+    """,
+    json_extracion_template="""
+        ```json
+        {{
+            "out": [
+                {{
+                    "out": "<extracted_drug>",
+                    "prescription": "<extracted_interval>"
+                }},
+                ...
+            ]
+        }}
+        ```
+    """,
+    pre_intruct_prompts=[
+        """
+        Some examples of other treatments that you may find in the text are:
+        - neuropsicologico
+        - fisioterapia (fst)
+        - fisioterapia motora (Fisio M )
+        - fisioteraoia respiratoria (Fisio R)
+        """ 
+    ]
+)
+
 lab_basic_attributes = AttributesInterface(
     context_definition="""
             You are a medical expert, helping to extract basic lab tests from text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
