@@ -222,56 +222,6 @@ lab_chemical_attributes = AttributesInterface(
     ]
 )
 
-lab_chemical_attributes = AttributesInterface(
-    context_definition="""
-            You are a medical expert and help extract chemical laboratory tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
-        """,
-    user_prompt="""
-        <<CONTEXT>>
-            {context_data}
-
-            <<QUESTION>>
-            Using the information about the lab tests that you may find, what are the names of the lab tests and their results?
-
-            <<EXAMPLE>>
-            If the text mentions the lab tests "LDL" with the result "142,56" and "HDL" with the result "32" you should output:
-
-            {json_template}
-
-            If there are no lab tests mentioned you should output:
-            ```json
-            {{
-                "lab_chemical": "No lab tests mentioned"
-            }}
-            ```
-
-            REMEMBER: The names of the lab tests and their results should be in the same format as they appear in the text.
-            REMEMBER: If there are multiple lab tests mentioned you should list them all.
-            REMEMBER: You don't need to include any other information in the output.
-        """,
-    json_extracion_template="""
-            ```json
-            {{
-                "lab_chemical": [
-                    {{
-                        "test": "<extracted_test>",
-                        "result": "<extracted_result>"
-                    }},
-                    ...
-                ]
-            }}
-            ```
-        """,
-    pre_intruct_prompts=[
-        """
-        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
-            - low density lipoprotein (LDL)
-            - high density lipoprotein (HDL)
-            - triglycerides (Trigl, TL)
-        """
-    ]
-)
-
 lab_aac_attributes = AttributesInterface(
     context_definition="""
             You are a medical expert and help extract antibodies laboratory tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
@@ -302,7 +252,7 @@ lab_aac_attributes = AttributesInterface(
     json_extracion_template="""
             ```json
             {{
-                "lab_chemical": [
+                "lab_aac": [
                     {{
                         "test": "<extracted_test>",
                         "result": "<extracted_result>"
@@ -318,6 +268,67 @@ lab_aac_attributes = AttributesInterface(
             - anti-MOG antibody-associated disease (MOGAD, MONEM)
             - anti-aquaporin-4 antibody (Anti-AQP4 Ab, anti-NMO-IgG Ab)
             - antibodies (ANTI)
+            - Anti-LKM
+            - Anti-CCP
+            - Anti-ML
+            - erythrocyte sedimentation (VSG, VHS, ESR)
+        """
+    ]
+)
+
+lab_sorol_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert and help extract sorol laboratory tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
+        """,
+    user_prompt="""
+        <<CONTEXT>>
+            {context_data}
+
+            <<QUESTION>>
+            Using the information about the lab tests that you may find, what are the names of the lab tests and their results?
+
+            <<EXAMPLE>>
+            If the text mentions the lab tests "HIV" with the result "NEG" and "VZV" with the result "1.019" you should output:
+
+            {json_template}
+
+            If there are no lab tests mentioned you should output:
+            ```json
+            {{
+                "lab_sorol": "No lab tests mentioned"
+            }}
+            ```
+
+            REMEMBER: The names of the lab tests and their results should be in the same format as they appear in the text.
+            REMEMBER: If there are multiple lab tests mentioned you should list them all.
+            REMEMBER: You don't need to include any other information in the output.
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "lab_sorol": [
+                    {{
+                        "test": "<extracted_test>",
+                        "result": "<extracted_result>"
+                    }},
+                    ...
+                ]
+            }}
+            ```
+        """,
+    pre_intruct_prompts=[
+        """
+        Examples of lab tests (some of them with their acronyms) that you may find in the text are:
+            - HIV
+            - HCV
+            - MANTOUX (PPD)
+            - VZV (vírus varicela-zoster)
+            - anti-aquaporin-4 antibody (Anti-AQP4 Ab, anti-NMO-IgG Ab)
+            - cytomegalovirus(CMV)
+            - syphilis (VDRL+, reag., reagente)
+            - Epistein Barr
+            - RUBELLA
+            - Hepatitis
         """
     ]
 )

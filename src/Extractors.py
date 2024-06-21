@@ -18,7 +18,7 @@ class TableDomainExtractor:
             try:
                 response = self.chat_model.invoke(messages, temperature=0.01)
                 extracted_data = self.parse_to_json(response)
-            except Exception as e:
+            except Exception as e:   
                 print(e)
                 continue
 
@@ -53,14 +53,14 @@ class LabChemicalExtractor(TableDomainExtractor):
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
 
-class LabChemicalExtractor(TableDomainExtractor):
+class LabAacExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
         self.table_name = "lab_aac"
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
-
-class LabAacExtractor(TableDomainExtractor):
+        
+class LabSorolExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
-        self.table_name = "lab_aac"
+        self.table_name = "lab_sorol"
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
