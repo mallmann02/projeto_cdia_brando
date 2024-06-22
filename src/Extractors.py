@@ -13,7 +13,7 @@ class TableDomainExtractor:
             try:
                 response = self.chat_model.invoke(messages, temperature=0.01)
                 extracted_data = self.parse_to_json(response)
-            except Exception as e:
+            except Exception as e:   
                 print(e)
                 continue
 
@@ -30,9 +30,45 @@ class DrugsExtractor(TableDomainExtractor):
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
 
+class DmdExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "trat_dmd"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+        
+class OtherTreatExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "trat_out"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
 class LabBasicExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
         self.table_name = "lab_basic"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class LabHematExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_hemat"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class LabChemicalExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_quimica"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class LabAacExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_aac"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+        
+class LabSorolExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "lab_sorol"
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
 
