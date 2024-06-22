@@ -122,3 +122,77 @@ lab_basic_attributes = AttributesInterface(
     ]
 )
 
+surtos_reg_alt_vital_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert, identifying from the context if some body function was affected or not. The context you'll be shown is a relatory of a patient's visit to the doctor being tracked of it's multiple sclerosis. Your task is to identify if any body function was affected in the outbreak.
+        """,
+    user_prompt="""    
+            <<CONTEXT>>
+            {context_data}
+
+            <<INSTRUCT>>
+            You should output with "Yes" for the affected functions and "Not found" for all the non-affected functions following the template below:
+
+            {json_template}
+
+            If there are no outbreaks mentioned you should output:
+            ```json
+            {{
+                "visual": "Not found",
+                "motor": "Not found",
+                "sensory": "Not found",
+                "cerebellar": "Not found",
+                "pyramidal": "Not found",
+                "bladder": "Not found",
+                "bowel": "Not found",
+                "cognitive": "Not found"
+            }}
+            ```
+
+            REMEMBER: The names of the outbreaks should be in the same format as they appear in the text.
+            REMEMBER: If there are multiple outbreaks mentioned you should list them all.
+            REMEMBER: You don't need to include any other information in the output.
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "visual": <yes/not found>,
+                "motor": <yes/not found>,
+                "sensory": <yes/not found>,
+                "cerebellar": <yes/not found>,
+                "pyramidal": <yes/not found>,
+                "bladder": <yes/not found>,
+                "bowel": <yes/not found>,
+                "cognitive": <yes/not found>
+            }}
+            ```
+        """,
+    pre_intruct_prompts=[
+        """
+        Examples of body functions alterations that you may find in the text are:
+            - Visual
+            - Motor
+            - Sensory
+            - Cerebellar
+            - Pyramidal
+            - Bladder
+            - Bowel
+            - Cognitive
+
+        The following are the descriptions of the body functions alterations:
+        - Hipoestesia (hypoesthesia): reduced sense of touch or sensation (sensory)
+        - Parestesia (paresthesia): abnormal sensation, typically tingling or pricking (sensory)
+        - Ataxia (ataxia): lack of muscle coordination (cerebellar)
+        - Disartria (dysarthria): difficulty speaking (cerebellar)
+        - Diplopia (diplopia): double vision (visual)
+        - Nistagmo (nystagmus): involuntary eye movement (visual)
+        - Ptose palpebral (ptosis): drooping eyelid (visual)
+        - Espasticidade (spasticity): muscle stiffness (motor)
+        - Fraqueza (weakness): lack of muscle strength (motor)
+        - Disfunção vesical (bladder dysfunction): bladder problems (bladder)
+        - Disfunção intestinal (intestinal dysfunction): bowel problems (bowel)
+        - Incontinência urinária (urinary incontinence): loss of bladder control (bladder)
+        - pyramidal: related to the pyramidal tract, which is responsible for the voluntary control of the muscles
+        """
+    ]
+)
