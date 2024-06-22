@@ -4,12 +4,7 @@ class TableDomainExtractor:
     def __init__(self, pacient_report_file, TableAttributes):
         self.pacient_report_file = pacient_report_file
         self.attributes = TableAttributes
-        self.pacient_report = self.read_paciente_report()
-
-    def read_paciente_report(self):
-        with open(self.pacient_report_file, "r") as f:
-            text = f.read()
-        return text
+        self.pacient_report = pacient_report_file
 
     def extract(self):
         total_extracted_data = []
@@ -38,5 +33,11 @@ class DrugsExtractor(TableDomainExtractor):
 class LabBasicExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
         self.table_name = "lab_basic"
+        self.chat_model = chat_model
+        super().__init__(pacient_report_file, TableAttributes)
+
+class SurtosRegExtractor(TableDomainExtractor):
+    def __init__(self, pacient_report_file, chat_model, TableAttributes):
+        self.table_name = "surtos_reg"
         self.chat_model = chat_model
         super().__init__(pacient_report_file, TableAttributes)
