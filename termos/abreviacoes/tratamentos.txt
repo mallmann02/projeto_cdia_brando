@@ -1,0 +1,37 @@
+DMD: droga modificadora da doença
+DMT: terapia modificadora da doença
+DMF, fumarato ou dimetil-fumarato: fumarato de dimetila (Tecfidera)
+NTZ ou nata: natalizumabe (Tysabri)
+OCR ou acre: ocrelizumabe (Ocrevus)
+Fingo, FTY ou FTY720: fingolimode (Gilenya)
+Clad.: cladribina (Mavenclad)
+AG ou GA: acetato de glatirâmer (Copaxone)
+IFN, interferon, beta-IFN, IFN-beta: betainterferona
+Teri: teriflunomida (Aubagio)
+ALE, ALTZ ou alentu: alentuzumabe (Lemtrada)
+OFA ou ofa: ofatumumabe (Kesimpta)
+SIPO ou sipo: siponimode (Kiendra)
+MP ou solumedrol: metilprednisolona
+MPIV: metilprednisolona intravenosa
+MPVO: metilprednisolona via oral
+Fampyra: pampridina
+HCTZ: hidroclorotiazida
+ACO: anticoncepcional oral
+AINE: anti-inflamatório não esteroide
+ATB: antibiótico
+THC, CBD ou Mevatyl: canabidiol
+BTX, BTX-A, TB, BOTOX ou Dysport: toxina botulínica
+DAE: droga antiepiléptica
+DFH: fenitoína
+CBZ: carbamazepina
+OCZ: oxcarbazepina
+GBP: gabapentina
+VPA: ácido valproico
+RTX: rituximabe
+AZA: azatioprina
+MMF: micofenolato de mofetila
+MTX: metotrexato
+CF ou CYC: ciclofosfamida
+IVIG: imunoglobulina humana intravenosa
+AHSCT: Transplante Autólogo de Células-Tronco Hematopoéticas
+TMO ou BMT: Transplante de Medula Óssea

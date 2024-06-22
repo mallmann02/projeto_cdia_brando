@@ -1,0 +1,7 @@
+EDSS: Escala Expandida de Estado de Incapacidade 
+SF do EDSS: sistema funcional do EDSS
+MSFC: “multiple sclerosis functional composite” (escala usada na avaliação da EM)
+PASAT: escala para avaliar a cognição
+9HPT: teste dos 9 pinos
+T25FW ou T25-FW: Teste de caminhada (de 25 pés ou 7,62m)
+SDMT: Symbol Digit Modalities Test

@@ -1,0 +1,6 @@
+QP: queixa principal
+HDA: história da doença atual
+RS: revisão de sistemas
+HMP: história médica pregressa (usar para as comorbidades)
+HF: história familiar
+PPS: perfil psicossocial

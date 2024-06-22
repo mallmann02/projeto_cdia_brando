@@ -1,0 +1,47 @@
+RM, RNM ou MRI: ressonância magnética
+Gd: gadolínio (contraste da ressonância magnética)
+Gd +: gadolínio positivo (representa lesão ativa/captante de contraste, ou seja, identifica uma lesão recente/nova na RM)
+Gd -: gadolínio negativo (ausência de lesão captante de contraste)
+TC: tomografia computadorizada
+PL ou LCR ou líquor: líquido cefalorraquidiano
+BOC: bandas oligoclonais
+BOC -, tipo 1 ou negativo: ausentes
+BOC + tipo 2: presentes somente no LCR (> 2 bandas)
+BOC + tipo 3: presentes no LCR e no plasma, mas algumas somente no LCR
+BOC + tipo 4: presentes no LCR e no plasma
+Ac anti-AQP4 ou Ac anti-NMO-IgG: anticorpo anti-aquaporina-4
+Ac anti-MOG: anticorpo anti-Glicoproteína Mielina Oligodendrócito
+OCT: tomografia de coerência óptica
+PE: potencial evocado
+PEV: potencial evocado visual
+PEAT ou PEATC: potencial evocado auditivo de tronco (cerebral)
+PESS: potencial evocado somatossensitivo
+NFl: neurofilamentos de cadeia leve
+EDA: endoscopia digestiva alta
+MAPA: medida ambulatorial da pressão arterial
+Rx: raio X
+Eco, ecografia, US ou USG: ultrassonografia
+Lab. ou Labs.: exames laboratoriais
+Hb ou Hgb: hemoglobina
+Ht ou Hct: hematócrito
+RBC: contagem de glóbulos vermelhos
+Leuc. ou WBC: leucócitos (contagem de glóbulos brancos)
+Linf.: linfócitos
+Plaq. ou PLT: plaquetas
+ALT: TGP
+AST: TGO
+FA: fosfatase alcalina
+GGT: gama GT
+BT: bilirrubinas totais
+BD: bilirrubinas direitas
+BI: bilirrubinas indiretas
+PFH: provas de funções hepáticas (TGO, TGP, FA, GGT, bilirrubinas)
+Glic.: glicose (glicemia)
+FR: fator reumatoide
+PCR: proteína C-reativa (no BRANDO, muito dificilmente o PCR será relacionado à COVID-19)
+VSG, VHS ou ESR: hemossedimentação (taxa de sedimentação de eritrócitos)
+Col. Tot.: colesterol total
+Col. LDL ou LDL: lipoproteína de baixa densidade (subtipo de colesterol)
+Col. HDL: lipoproteína de alta densidade (subtipo de colesterol)
+Trigl. ou TG: triglicerídeos
+EQU, urina 1 ou EAS: exame de urina

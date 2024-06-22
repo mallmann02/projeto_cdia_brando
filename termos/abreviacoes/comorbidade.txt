@@ -1,0 +1,46 @@
+NO: neurite óptica
+MT: mielite transversa
+MTLE ou LETM: mielite transversa longitudinalmente extensa
+NMO, NMOSD ou DENMO: doença do espectro da neuromielite óptica
+MOGAD ou MONEM: doença associada ao anticorpo anti-MOG
+LEMP ou PML: leucoencefalopatia multifocal progressiva
+DM: diabete mellitus
+HAS: hipertensão arterial sistêmica
+AVE ou AVC: “derrame cerebral”
+THB, TAB, transtorno do humor bipolar ou transtorno afetivo bipolar: bipolaridade
+IAM: infarto agudo do miocárdio
+IC, ICE ou ICC: insuficiência cardíaca
+Ca ou Tu: neoplasia
+TB ou TBC: tuberculose
+PPD ou Mantoux: teste para tuberculose
+AIDS ou SIDA: HIV +
+VDRL+  ou reag. ou reagente: sífilis
+HBV ou HBsAg +  ou reag. ou reagente: hepatite B
+HCV +  ou reag. ou reagente: hepatite C
+HAV+  ou reag. ou reagente: hepatite A
+HSV: vírus do herpes simples
+VZV: vírus varicela-zoster
+CMV: citomegalovírus
+Toxo: toxoplasmose
+EBV: vírus Epstein-Barr
+HTLV: vírus linfotrópico de células T humanas
+MMR: vacina sarampo, caxumba e rubéola (MMR)
+HPV: papilomavírus humano
+VSR ou RSV: Vírus Sincicial Respiratório
+DPOC, DBPOC ou COPD: doença pulmonar obstrutiva crônica
+STC: síndrome do túnel do carpo
+PNP: polineuropatia
+ELA: esclerose lateral amiotrófica
+MG: miastenia gravis
+RGE ou DRGE: (doença do) refluxo gastroesofágico
+IVAS: infecção de vias aéreas superiores
+BCP: broncopneumonia
+PTI: púrpura trombocitopênica idiopática (inflamatória)
+TVP: trombose venosa profunda
+TEP: tromboembolismo pulmonar
+OMA: otite média aguda
+TAG: transtorno de ansiedade generalizada
+ITU: infecção do trato urinário
+ACFA: arritmia cardíaca fibrilação atrial
+AIDP, GBS ou SGB: polineuropatia inflamatória desmielinizante aguda
+CIDP: polineuropatia inflamatória desmielinizante crônica

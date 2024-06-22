@@ -1,0 +1,38 @@
+sp: sem particularidades (normal)
+dx: diagnóstico
+hx: história
+IH: intra-hospitalar
+Tto: tratamento
+JC, vírus JC, JCV ou VJC: JCV 
+Ac: anticorpo
+Fisio M: fisioterapia motora
+Fisio R: fisioterapia respiratória
+Fisio M +R: fisioterapia motora e respiratória
+JUP: junção ureteropélvica
+NEDA: sem evidência de doença ativa
+SNC: sistema nervoso central
+SNP: sistema nervoso periférico
+SNA: sistema nervoso autônomo
+EM: esclerose múltipla
+AQP4: aquaporina-4
+MOG: Glicoproteína Mielina Oligodendrócito
+ADEM: encefalomielite disseminada aguda
+BCTRIMS: Comitê Brasileiro de Tratamento e Pesquisa em Esclerose Múltipla
+ECTRIMS: Comitê Europeu de Tratamento e Pesquisa em Esclerose Múltipla
+LACTRIMS: Comitê Latino-americano de Tratamento e Pesquisa em Esclerose Múltipla
+ACTRIMS: Comitê Norte-americano de Tratamento e Pesquisa em Esclerose Múltipla
+PACTRIMS: Comitê Pan-asiático de Tratamento e Pesquisa em Esclerose Múltipla
+AAN: Academia Americana de Neurologia
+ABN: Academia Brasileira de Neurologia
+ANVISA: Agência Nacional de Vigilância Sanitária
+SUS: Sistema Único de Saúde
+MS: Ministério da Saúde
+SES: Secretaria Estadual de Saúde
+CREMERS: Conselho Regional de Medicina do Rio Grande do Sul
+CRM: Conselho Regional de Medicina
+FENhance: estudo clínico com medicação experimental
+GEMINI: estudo clínico com medicação experimental
+REMIT: estudo clínico com medicação experimental
+ORATORIO: estudo clínico com medicação experimental
+CONSONANSCE: estudo clínico com medicação experimental
+DBR03T: estudo clínico com medicação experimental

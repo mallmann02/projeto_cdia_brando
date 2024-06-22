@@ -1,0 +1,42 @@
+NC ou PC: nervos (pares) cranianos 
+MOE: motricidade ocular extrínseca (nervos cranianos III, IV e VI)
+PIFR: pupilas isofotorreagentes (normal)
+AV: acuidade visual
+Snellen: acuidade visual medido pela escala de Snellen
+OE: olho esquerdo
+OD: olho direito
+AO: ambos os olhos
+FO ou fundoscopia: fundo de olho
+DPAR: déficit pupilar aferente
+OIN: oftalmoplegia internuclear
+RCP ou reflexo cutâneo plantar extensor = Babinski +
+RCP ou reflexo cutâneo plantar flexor = Babinski -
+MSD: membro superior direito
+MSE: membro superior esquerdo
+MID: membro inferior direito
+MIE: membro inferior esquerdo
+MMSS: membros superiores
+MMII: membros inferiores
+MsSs: membros superiores
+MsIs: membros inferiores
+Hemicorpo: um lado do corpo
+FM: força muscular (graus 0 a 5)
+Hemiparesia: diminuição de força em um lado do corpo (força entre 1 e 4)
+Paraparesia: diminuição de força nos membros inferiores (força entre 1 e 4)
+Tetraparesia: diminuição de força nos quatro membros (força entre 1 e 4)
+Hemiplegia: ausência de força em um lado do corpo (força grau 0)
+Paraplegia: ausência de força nos membros inferiores (força grau 0)
+Tetraplegia: ausência de força nos quatro membros (força grau 0)
+ROT: reflexos tendinosos
+Hiperreflexia: reflexo grau 4
+Hiporreflexia: reflexo grau 1
+Arreflexia: reflexo grau 0
+SV, SVs: sinais vitais
+BEG: bom estado geral
+LOC: lúcido, orientado e coerente
+MUC: mucosas úmidas e coradas
+PA: pressão arterial
+PAS ou PAs: pressão arterial sistólica
+PAD ou PAd: pressão arterial diastólica
+MV: murmúrio vesicular
+BCRNF: bulhas cardíacas rítmicas normofônicas

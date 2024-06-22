@@ -1,0 +1,5 @@
+RIS ou SRI: síndrome radiologicamente isolada
+CIS ou SCI: síndrome clínica isolada
+EMRR ou EMSS: esclerose múltipla remitente-recorrente (ou surto-supressão)
+EMSP: esclerose múltipla secundariamente progressiva
+EMPP: esclerose múltipla primariamente progressiva
