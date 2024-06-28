@@ -1,10 +1,18 @@
 from langchain_core.output_parsers import JsonOutputParser
+from functools import reduce
+
+dict_values_mapper = {
+    "yes": 1.0,
+    "no": 0,
+    "not found": 99.0
+}
 
 class TableDomainExtractor:
-    def __init__(self, pacient_report_file, TableAttributes):
+    def __init__(self, pacient_report_file, TableAttributes, key_mappings=None):
         self.pacient_report_file = pacient_report_file
         self.attributes = TableAttributes
         self.pacient_report = pacient_report_file
+        self.key_mappings = key_mappings
 
     def extract(self):
         total_extracted_data = []
@@ -13,16 +21,47 @@ class TableDomainExtractor:
             try:
                 response = self.chat_model.invoke(messages, temperature=0.01)
                 extracted_data = self.parse_to_json(response)
-            except Exception as e:   
+                if self.key_mappings:
+                    for key, value in self.key_mappings.items():
+                        if key in extracted_data:
+                            extracted_data[value] = extracted_data.pop(key)
+            except Exception as e:
                 print(e)
                 continue
 
             total_extracted_data.append(extracted_data)
 
+        # total_extracted_data = reduce(lambda x, y: x.update(y), total_extracted_data, {"content": ""})
         return total_extracted_data
 
     def parse_to_json(self, extracted_data):
         return JsonOutputParser().parse(extracted_data.content.split("</s>")[-1])
+    
+    # create a code to compare the extracted data with the expected data
+    def compare(self, extracted_data, expected_data):
+        tp, fp, fn = 0, 0, 0
+        for key in expected_data.keys():
+            if key not in extracted_data:
+                fn += 1
+                continue
+            if extracted_data[key] != expected_data[key]:
+                fp += 1
+            else:
+                tp += 1
+            del extracted_data[key]
+        fp += len(extracted_data)
+        return self.calculateMetrics(tp, fp, fn)
+    
+    def calculateMetrics(self, tp, fp, fn):
+        precision = tp / (tp + fp)
+        recall = tp / (tp + fn)
+        try:
+            f1 = 2 * (precision * recall) / (precision + recall)
+            return precision, recall, f1
+        except ZeroDivisionError:
+            print("ZeroDivisionError")
+        return precision, recall, 0
+        
     
 class DrugsExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
@@ -76,4 +115,14 @@ class SurtosRegExtractor(TableDomainExtractor):
     def __init__(self, pacient_report_file, chat_model, TableAttributes):
         self.table_name = "surtos_reg"
         self.chat_model = chat_model
-        super().__init__(pacient_report_file, TableAttributes)
+        self.dict_keys_mapper = {
+            "visual": "sa_func_visuais",
+            "motor": "sa_func_tronco",
+            "sensory": "sa_func_sensibilidade",
+            "cerebellar": "sa_func_cerebelares",
+            "pyramidal": "sa_func_piramidais",
+            "bladder": "sa_func_intestino_bexiga",
+            "bowel": "sa_func_intestino_bexiga",
+            "cognitive": "sa_func_cerebrais_mentais",
+        }
+        super().__init__(pacient_report_file, TableAttributes, key_mappings=self.dict_keys_mapper)
