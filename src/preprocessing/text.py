@@ -7,6 +7,8 @@ from nltk import pos_tag
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.downloader import download
 import re
+import os
+import json
 # locais
 import src.const.text as const
 
@@ -36,6 +38,10 @@ def higienizador(texto:str)->str:
     # remove espaços antes de quebra de linha
     tratado=re.sub(re.compile(r"[ ]+(?=\n|$)"),'',tratado)
     # sub 2 ou mais espaços por quebra sentenca ('. ')
+
+    # substitui acronimos - BENTO: desativado por enquanto
+    # tratado = substituir_acronimos(tratado, obter_acronimos())
+
     return re.sub(re.compile(r"(?<=[a-z0-9])[ ]{2,}(?=\w)"),'. ',tratado)
 
 def tokenizador_topico(texto:str,
@@ -60,3 +66,19 @@ def pos_tagging(sentenca:str,idioma:str='portuguese')->list[tuple[str,str]]:
     Retorna uma lista de (palavra,POS) para sentença passada.
     """
     return pos_tag(word_tokenize(sentenca,language=idioma),lang=idioma)
+
+def obter_acronimos(path:str='acronimos.json') -> dict:
+    if not os.path.isfile(path):
+        raise ValueError(f"esse arquivo '{path}' não existe.")
+    f = open(path, 'r', encoding='utf-8')
+    return json.load(f)
+
+def substituir_acronimos(texto:str,
+                         acronimos:dict)->str:
+    """
+    Método que substitui abreviações encontradas em um dicionário passado
+    por parâmetro no texto.
+    """
+    pattern = re.compile(r'\b(' + '|'.join(acronimos.keys()) + r')\b')
+
+    return pattern.sub(lambda x: acronimos[x.group()], texto)
