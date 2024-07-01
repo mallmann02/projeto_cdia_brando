@@ -256,6 +256,7 @@ surtos_reg_alt_vital_attributes = AttributesInterface(
             REMEMBER: The names of the outbreaks should be in the same format as they appear in the text.
             REMEMBER: If there are multiple outbreaks mentioned you should list them all.
             REMEMBER: You don't need to include any other information in the output.
+            REMEMBER: Don't nest json outputs. Each output should be a single json object.
         """,
     json_extracion_template="""
             ```json
@@ -300,12 +301,50 @@ surtos_reg_alt_vital_attributes = AttributesInterface(
         """
     ]
 )
+
+surtos_reg_info_surto_attributes = AttributesInterface(
+    context_definition="""
+            You are a medical expert, identifying from the context if there is any outbreak mentioned. The context you'll be shown is a relatory of a patient's visit to the doctor being tracked of it's multiple sclerosis. Your task is to answer the questions about the outbreak, following the json template.
+        """,
+    user_prompt="""    
+            <<QUESTIONS>>
+            - Was the daily routine affected by the outbreak? (Yes/No/Not Found)
+            - What was the severity of the outbreak, in levels? Level 1 to 3 (softer to harder) or Not Found
+            - What was the recovery os the pacient? Level 1 to 3 (no recovery to full recovery) or Not Found
+            - What was the duration of the outbreak? (extracted duration in days) or Not Found
+            - Was the pacient treated? (Yes/No/Not Found)
+            - When did the treatment started? (extracted time in days) or Not Found
+
+            
+            <<TEMPLATE>>
+            {json_template}
+
+            <<EXAMPLE>>
+            Sentence: ""
+            
+            <<CONTEXT>>
+            {context_data}
+        """,
+    json_extracion_template="""
+            ```json
+            {{
+                "affected_daily_routine": "<Yes/No/Not Found>",
+                "severity": "<1/2/3/Not Found>",
+                "resolution": "<1/2/3/Not Found>",
+                "duration": "<extracted duration in days/Not Found>",
+                "was_treated": "<Yes/No/Not Found>",
+                "treatment_start": "<extracted time in days/Not found>"
+            }}
+            ```
+        """
+)
+
 lab_hemat_attributes = AttributesInterface(
     context_definition="""
             You are a medical expert and help extract laboratory hematocrit tests from the text. The context you'll be shown is a relatory of a patient's visit to the doctor. You'll be asked to extract the names of the lab tests and their results mentioned in the text. If you don't find any lab tests, you should say 'No lab tests mentioned'.
         """,
     user_prompt="""
-        <<CONTEXT>>
+            <<CONTEXT>>
             {context_data}
 
             <<QUESTION>>
