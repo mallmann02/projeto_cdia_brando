@@ -8,11 +8,12 @@ dict_values_mapper = {
 }
 
 class TableDomainExtractor:
-    def __init__(self, pacient_report_file, TableAttributes, key_mappings=None):
+    def __init__(self, pacient_report_file, TableAttributes, key_mappings=None, value_mappings=None):
         self.pacient_report_file = pacient_report_file
         self.attributes = TableAttributes
         self.pacient_report = pacient_report_file
         self.key_mappings = key_mappings
+        self.value_mappings = value_mappings
 
     def extract(self):
         total_extracted_data = []
@@ -25,13 +26,15 @@ class TableDomainExtractor:
                     for key, value in self.key_mappings.items():
                         if key in extracted_data:
                             extracted_data[value] = extracted_data.pop(key)
+                for key, value in extracted_data.items():
+                    if value.lower() in self.value_mappings:
+                        extracted_data[key] = self.value_mappings[value]
             except Exception as e:
                 print(e)
                 continue
 
             total_extracted_data.append(extracted_data)
 
-        # total_extracted_data = reduce(lambda x, y: x.update(y), total_extracted_data, {"content": ""})
         return total_extracted_data
 
     def parse_to_json(self, extracted_data):
