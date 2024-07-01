@@ -40,7 +40,7 @@ def higienizador(texto:str)->str:
     # sub 2 ou mais espaços por quebra sentenca ('. ')
 
     # substitui acronimos - BENTO: desativado por enquanto
-    # tratado = substituir_acronimos(tratado, obter_acronimos())
+    tratado = substituir_acronimos(tratado, obter_acronimos())
 
     return re.sub(re.compile(r"(?<=[a-z0-9])[ ]{2,}(?=\w)"),'. ',tratado)
 
@@ -67,7 +67,7 @@ def pos_tagging(sentenca:str,idioma:str='portuguese')->list[tuple[str,str]]:
     """
     return pos_tag(word_tokenize(sentenca,language=idioma),lang=idioma)
 
-def obter_acronimos(path:str='acronimos.json') -> dict:
+def obter_acronimos(path:str='src/preprocessing/acronimos.json') -> dict:
     if not os.path.isfile(path):
         raise ValueError(f"esse arquivo '{path}' não existe.")
     f = open(path, 'r', encoding='utf-8')
