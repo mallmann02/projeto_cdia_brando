@@ -37,11 +37,9 @@ def higienizador(texto:str)->str:
     tratado=remover_caracteres(texto.strip())
     # remove espaços antes de quebra de linha
     tratado=re.sub(re.compile(r"[ ]+(?=\n|$)"),'',tratado)
-    # sub 2 ou mais espaços por quebra sentenca ('. ')
-
     # substitui acronimos - BENTO: desativado por enquanto
     tratado = substituir_acronimos(tratado, obter_acronimos())
-
+    # sub 2 ou mais espaços por quebra sentenca ('. ')
     return re.sub(re.compile(r"(?<=[a-z0-9])[ ]{2,}(?=\w)"),'. ',tratado)
 
 def tokenizador_topico(texto:str,
@@ -68,6 +66,9 @@ def pos_tagging(sentenca:str,idioma:str='portuguese')->list[tuple[str,str]]:
     return pos_tag(word_tokenize(sentenca,language=idioma),lang=idioma)
 
 def obter_acronimos(path:str='src/preprocessing/acronimos.json') -> dict:
+  """
+  Método que lê o json 'acronimos.json' e retorna um dicionário.
+  """
     if not os.path.isfile(path):
         raise ValueError(f"esse arquivo '{path}' não existe.")
     f = open(path, 'r', encoding='utf-8')
@@ -78,6 +79,8 @@ def substituir_acronimos(texto:str,
     """
     Método que substitui abreviações encontradas em um dicionário passado
     por parâmetro no texto.
+
+    Retorna texto corrigido.
     """
     pattern = re.compile(r'\b(' + '|'.join(acronimos.keys()) + r')\b')
 
