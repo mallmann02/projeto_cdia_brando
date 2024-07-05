@@ -66,9 +66,9 @@ def pos_tagging(sentenca:str,idioma:str='portuguese')->list[tuple[str,str]]:
     return pos_tag(word_tokenize(sentenca,language=idioma),lang=idioma)
 
 def obter_acronimos(path:str='src/preprocessing/acronimos.json') -> dict:
-  """
-  Método que lê o json 'acronimos.json' e retorna um dicionário.
-  """
+    """
+    Método que lê o json 'acronimos.json' e retorna um dicionário.
+    """
     if not os.path.isfile(path):
         raise ValueError(f"esse arquivo '{path}' não existe.")
     f = open(path, 'r', encoding='utf-8')
